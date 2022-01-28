@@ -26,7 +26,7 @@ const jsonParser = bodyParser.json();
 // on creés notre Midleware
 
 routes.get('/', (req, res) => {
-    res.send('Hello World!')
+    res.send('Hel World!')
 })
 
 // connection a notre BD
