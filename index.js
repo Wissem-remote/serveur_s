@@ -5,6 +5,9 @@ const routes = express.Router()
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const { MongoClient } = require('mongodb');
+const dotenv = require('dotenv')
+
+dotenv.config();
 // Route Midleware
 
 app.use('/', routes)
@@ -29,7 +32,7 @@ routes.get('/', (req, res) => {
 // connection a notre BD
 
 
-const uri = "mongodb+srv://waze:wissem@cluster-schools.asenz.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const uri = process.env.DB_CONNECT;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
     if(err){
